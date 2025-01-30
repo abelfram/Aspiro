@@ -3,6 +3,7 @@ using Aspiro.Library.Entities;
 using Aspiro.Library.InfrastructureContracts;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Security.Cryptography.X509Certificates;
 using DTO = Aspiro.Contracts.ServiceLibrary.DTO;
 
 namespace Aspiro.DB.Infrastructure.Repositories
@@ -76,8 +77,12 @@ namespace Aspiro.DB.Infrastructure.Repositories
         {
             try
             {
-                var deletedUser = new Users { Dni = dni };
+                var deletedUser = await _context.Users.FirstOrDefaultAsync(x => x.Dni == dni);
 
+                if (deletedUser == null)
+                {
+                    return new NotFoundObjectResult($"User with Dni '{dni}' not found");
+                }
                 _context.Users.Remove(deletedUser);
 
                 await _context.SaveChangesAsync();
