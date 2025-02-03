@@ -7,8 +7,8 @@ namespace Aspiro.Library.InfrastructureContracts
     {
         Task<IActionResult> Create(Users users);
         Task<IActionResult> Read();
-        Task<IActionResult> Update(string oldDni, Users users);
-        Task<IActionResult> Delete(string dni);
+        Task<IActionResult> Update(Users users);
+        Task<IActionResult> Delete(int id);
         
         
     }

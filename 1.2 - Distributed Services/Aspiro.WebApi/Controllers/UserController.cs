@@ -40,18 +40,18 @@ namespace Aspiro.WebApi.Controllers
         }
 
         [HttpPost]
-        [Route("Modify")]
-        public async Task<IActionResult> Update(string oldDni, Users users)
+        [Route("Update/{id}")]
+        public async Task<IActionResult> Update(Users users)
         {
-            var result = await _aspiroApplicationService.Update(oldDni, users);
+            var result = await _aspiroApplicationService.Update(users);
             return result;
         }
 
-        [HttpPost]
-        [Route("Delete")]
-        public async Task<IActionResult> Delete(string dni)
+        [HttpDelete]
+        [Route("Delete/{id}")]
+        public async Task<IActionResult> Delete(int id)
         {
-            var result = await _aspiroApplicationService.Delete(dni);
+            var result = await _aspiroApplicationService.Delete(id);
             return result;
         }
 

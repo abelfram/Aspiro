@@ -3,7 +3,6 @@ using Aspiro.Library.Entities;
 using Aspiro.Library.InfrastructureContracts;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using System.Security.Cryptography.X509Certificates;
 using DTO = Aspiro.Contracts.ServiceLibrary.DTO;
 
 namespace Aspiro.DB.Infrastructure.Repositories
@@ -49,15 +48,15 @@ namespace Aspiro.DB.Infrastructure.Repositories
             }
         }
 
-        public async Task<IActionResult> Update(string oldDni, DTO.Users users)
+        public async Task<IActionResult> Update(DTO.Users users)
         {
             try
             {
-                var existingUser = await _context.Users.FirstOrDefaultAsync(x => x.Dni == oldDni);
+                var existingUser = await _context.Users.FirstOrDefaultAsync(x => x.Id == users.Id);
 
                 if (existingUser == null)
                 {
-                    return new NotFoundObjectResult($"User with DNI '{oldDni}' not found");
+                    return new NotFoundObjectResult($"User with Id '{users.Id}' not found");
                 }
 
                 existingUser.Name = users.Name;
@@ -73,15 +72,15 @@ namespace Aspiro.DB.Infrastructure.Repositories
             }
         }
 
-        public async Task<IActionResult> Delete(string dni)
+        public async Task<IActionResult> Delete(int id)
         {
             try
             {
-                var deletedUser = await _context.Users.FirstOrDefaultAsync(x => x.Dni == dni);
+                var deletedUser = await _context.Users.FirstOrDefaultAsync(x => x.Id == id);
 
                 if (deletedUser == null)
                 {
-                    return new NotFoundObjectResult($"User with Dni '{dni}' not found");
+                    return new NotFoundObjectResult($"User with id '{id}' not found");
                 }
                 _context.Users.Remove(deletedUser);
 

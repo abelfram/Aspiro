@@ -33,15 +33,15 @@ namespace Aspiro.Impl.ServiceLibrary.Implementations
             return result;
         }
 
-        public Task<IActionResult> Update(string oldDni, Users users)
+        public Task<IActionResult> Update(Users users)
         {
-            var result = _userRepository.Update(oldDni, users);
+            var result = _userRepository.Update(users);
             return result;
         }
 
-        public Task<IActionResult> Delete(string dni)
+        public Task<IActionResult> Delete(int Id)
         {
-            var result = _userRepository.Delete(dni);
+            var result = _userRepository.Delete(Id);
             return result;
         }
 
