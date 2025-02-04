@@ -1,6 +1,7 @@
 ﻿using Aspiro.DB.Infrastructure.BoundedContexts;
 using Aspiro.Library.Entities;
 using Aspiro.Library.InfrastructureContracts;
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using DTO = Aspiro.Contracts.ServiceLibrary.DTO;
@@ -10,22 +11,21 @@ namespace Aspiro.DB.Infrastructure.Repositories
     public class UsersRepository : IUsersRepository
     {
         private readonly AspiroDBContext _context;
+        private readonly IMapper _mapper;
 
-        public UsersRepository(AspiroDBContext context)
+        public UsersRepository(AspiroDBContext context, IMapper mapper)
         {
             _context = context;
+            _mapper = mapper;
         }
         
         public async Task<IActionResult> Create(DTO.Users users)
         {
             try
             {
-                var newUser = new Users{ Name = users.Name , Dni = users.Dni};
-
+                var newUser = _mapper.Map<Users>(users);
                 _context.Users.Add(newUser);
-
                 await _context.SaveChangesAsync();
-
                 return new OkObjectResult($"User '{users.Name}' created successfully with dni {users.Dni}.");
             }
             catch (Exception ex)

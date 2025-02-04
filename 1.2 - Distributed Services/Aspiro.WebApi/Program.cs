@@ -4,8 +4,20 @@ using Aspiro.DB.Infrastructure.Repositories;
 using Aspiro.Impl.ServiceLibrary.Implementations;
 using Aspiro.Library.InfrastructureContracts;
 using Microsoft.EntityFrameworkCore;
+using AutoMapper;
+using Aspiro.Extensions.Mappings;
 
 var builder = WebApplication.CreateBuilder(args);
+
+//Configuracion manual del AutoMapper
+var mapperConfig = new MapperConfiguration(cfg =>
+{
+    cfg.AddProfile(new UsersProfile());
+});
+
+var mapper = mapperConfig.CreateMapper();
+builder.Services.AddSingleton(mapper);
+
 
 // Add services to the container.
 

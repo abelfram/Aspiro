@@ -16,10 +16,13 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\1.3 - Application\Aspiro.Contracts.ExternalServices\Aspiro.Contracts.ExternalServices.csproj" />
     <ProjectReference Include="..\..\1.3 - Application\Aspiro.Contracts.ServiceLibrary\Aspiro.Contracts.ServiceLibrary.csproj" />
+    <ProjectReference Include="..\..\1.3 - Application\Aspiro.Impl.ExternalServices\Aspiro.Impl.ExternalServices.csproj" />
     <ProjectReference Include="..\..\1.3 - Application\Aspiro.Impl.ServiceLibrary\Aspiro.Impl.ServiceLibrary.csproj" />
     <ProjectReference Include="..\..\1.4 - Domain\1.4.2 - MainModule\Aspiro.Library\Aspiro.Library.csproj" />
     <ProjectReference Include="..\..\1.5 - Infrastructure\1.5.1 - Data\Aspiro.DB.Infrastructure\Aspiro.DB.Infrastructure.csproj" />
+    <ProjectReference Include="..\..\1.5 - Infrastructure\1.5.2 - Cross Cutting\Aspiro.Extensions\Aspiro.Extensions.csproj" />
   </ItemGroup>
 
 </Project>
