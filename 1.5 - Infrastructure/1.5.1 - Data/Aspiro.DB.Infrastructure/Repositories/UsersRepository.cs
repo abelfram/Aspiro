@@ -18,19 +18,26 @@ namespace Aspiro.DB.Infrastructure.Repositories
             _context = context;
             _mapper = mapper;
         }
-        
+
+        #region .: Public Methods :.
         public async Task<IActionResult> Create(DTO.Users users)
         {
             try
             {
+                if (await DniExists(users.Dni)) 
+                    return new ConflictObjectResult(new { message = $"Dni '{users.Dni}' already exists" });
+                
+                else if (await EmailExists(users.Email)) 
+                    return new ConflictObjectResult(new { message = $"Email '{users.Email}' already exists" });
+
                 var newUser = _mapper.Map<Users>(users);
                 _context.Users.Add(newUser);
                 await _context.SaveChangesAsync();
-                return new OkObjectResult($"User '{users.Name}' created successfully with dni {users.Dni}.");
+                return new OkObjectResult(new { message = $"User '{users.Name}' created successfully with dni {users.Dni}." });
             }
             catch (Exception ex)
             {
-                return new BadRequestObjectResult($"An error has ocurred: {ex.Message}" );
+                return new BadRequestObjectResult(new { message = $"An error has ocurred: {ex.Message}" });
             }
         }
 
@@ -44,7 +51,7 @@ namespace Aspiro.DB.Infrastructure.Repositories
             }
             catch (Exception ex)
             {
-                return new BadRequestObjectResult($"An error has ocurred: {ex.Message}");
+                return new BadRequestObjectResult(new { message = $"An error has ocurred: {ex.Message}" });
             }
         }
 
@@ -56,7 +63,7 @@ namespace Aspiro.DB.Infrastructure.Repositories
 
                 if (existingUser == null)
                 {
-                    return new NotFoundObjectResult($"User with Id '{users.Id}' not found");
+                    return new NotFoundObjectResult(new { message = $"User with Id '{users.Id}' not found" });
                 }
 
                 existingUser.Name = users.Name;
@@ -64,11 +71,11 @@ namespace Aspiro.DB.Infrastructure.Repositories
 
                 await _context.SaveChangesAsync();
 
-                return new OkObjectResult($"User {users.Name} updated correctly");
+                return new OkObjectResult(new { message = $"User {users.Name} updated correctly" });
             }
             catch (Exception ex)
             {
-                return new BadRequestObjectResult($"An error has ocurred: {ex.Message}");
+                return new BadRequestObjectResult(new { message = $"An error has ocurred: {ex.Message}" });
             }
         }
 
@@ -80,18 +87,33 @@ namespace Aspiro.DB.Infrastructure.Repositories
 
                 if (deletedUser == null)
                 {
-                    return new NotFoundObjectResult($"User with id '{id}' not found");
+                    return new NotFoundObjectResult(new { message = $"User with id '{id}' not found" });
                 }
                 _context.Users.Remove(deletedUser);
 
                 await _context.SaveChangesAsync();
 
-                return new OkObjectResult($"{deletedUser.Name} deleted");
+                return new OkObjectResult(new { message = $"{deletedUser.Name} deleted" });
             }
             catch (Exception ex)
             {
-                return new BadRequestObjectResult($"Could not delete {ex.Message}");
+                return new BadRequestObjectResult(new { message = $"Could not delete {ex.Message}" });
             }
         }
+        #endregion
+
+        #region .: private Methods :.
+
+        public async Task<bool> DniExists(string dni)
+        {
+            return await _context.Users.AnyAsync(u => u.Dni == dni);
+        }
+
+        public async Task<bool> EmailExists(string email)
+        {
+            return await _context.Users.AnyAsync(x => x.Email == email);
+        }
+
+        #endregion
     }
 }
