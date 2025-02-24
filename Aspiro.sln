@@ -19,29 +19,31 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1.5 - Infrastructure", "1.5
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Database", "2 - Database", "{6722C609-7A6B-4D37-B491-E4A92003A7C7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aspiro.WebApi", "1.2 - Distributed Services\Aspiro.WebApi\Aspiro.WebApi.csproj", "{85C8D463-66B0-4598-87E4-E276813E694D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Aspiro.WebApi", "1.2 - Distributed Services\Aspiro.WebApi\Aspiro.WebApi.csproj", "{85C8D463-66B0-4598-87E4-E276813E694D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aspiro.Contracts.ExternalServices", "1.3 - Application\Aspiro.Contracts.ExternalServices\Aspiro.Contracts.ExternalServices.csproj", "{7936C8E7-C7E5-483D-ABEA-33418D2F2AB7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Aspiro.Contracts.ExternalServices", "1.3 - Application\Aspiro.Contracts.ExternalServices\Aspiro.Contracts.ExternalServices.csproj", "{7936C8E7-C7E5-483D-ABEA-33418D2F2AB7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aspiro.Contracts.ServiceLibrary", "1.3 - Application\Aspiro.Contracts.ServiceLibrary\Aspiro.Contracts.ServiceLibrary.csproj", "{E6402587-2654-4103-A507-7AC66142904B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Aspiro.Contracts.ServiceLibrary", "1.3 - Application\Aspiro.Contracts.ServiceLibrary\Aspiro.Contracts.ServiceLibrary.csproj", "{E6402587-2654-4103-A507-7AC66142904B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aspiro.Impl.ServiceLibrary", "1.3 - Application\Aspiro.Impl.ServiceLibrary\Aspiro.Impl.ServiceLibrary.csproj", "{F93C4AAC-4633-40D4-A719-B3B0B47C85E4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Aspiro.Impl.ServiceLibrary", "1.3 - Application\Aspiro.Impl.ServiceLibrary\Aspiro.Impl.ServiceLibrary.csproj", "{F93C4AAC-4633-40D4-A719-B3B0B47C85E4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aspiro.Impl.ExternalServices", "1.3 - Application\Aspiro.Impl.ExternalServices\Aspiro.Impl.ExternalServices.csproj", "{024FA616-979B-4E0C-98C0-FE481142ACF1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Aspiro.Impl.ExternalServices", "1.3 - Application\Aspiro.Impl.ExternalServices\Aspiro.Impl.ExternalServices.csproj", "{024FA616-979B-4E0C-98C0-FE481142ACF1}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1.4.1 - Core", "1.4.1 - Core", "{0E864A4B-9793-44E8-97DE-4BC16CFF1F9B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1.4.2 - MainModule", "1.4.2 - MainModule", "{FAA95A63-1217-4CDD-B6CD-C6012C7C4DFF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aspiro.Library", "1.4 - Domain\1.4.2 - MainModule\Aspiro.Library\Aspiro.Library.csproj", "{47AE2CFE-DF3B-43E4-8983-A3B841D7D730}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Aspiro.Library", "1.4 - Domain\1.4.2 - MainModule\Aspiro.Library\Aspiro.Library.csproj", "{47AE2CFE-DF3B-43E4-8983-A3B841D7D730}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aspiro.DB.Infrastructure", "1.5 - Infrastructure\1.5.1 - Data\Aspiro.DB.Infrastructure\Aspiro.DB.Infrastructure.csproj", "{F8404DEC-8747-4DDA-9FFE-7C764E882456}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Aspiro.DB.Infrastructure", "1.5 - Infrastructure\1.5.1 - Data\Aspiro.DB.Infrastructure\Aspiro.DB.Infrastructure.csproj", "{F8404DEC-8747-4DDA-9FFE-7C764E882456}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1.5.1 - Data", "1.5.1 - Data", "{1CFABD8D-449E-4172-B455-7574ECF09FDA}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1.5.2 - Cross Cutting", "1.5.2 - Cross Cutting", "{C23C8C93-EA6F-45CF-B285-3E672EA39DA5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aspiro.Extensions", "1.5 - Infrastructure\1.5.2 - Cross Cutting\Aspiro.Extensions\Aspiro.Extensions.csproj", "{037BCF37-FC59-4BBC-B64A-B557A6978416}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Aspiro.Extensions", "1.5 - Infrastructure\1.5.2 - Cross Cutting\Aspiro.Extensions\Aspiro.Extensions.csproj", "{037BCF37-FC59-4BBC-B64A-B557A6978416}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "AspiroDataBase", "AspiroDataBase\AspiroDataBase.sqlproj", "{A3BF22E9-ADD2-4643-BD5B-E0DCF1EF7BEC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -81,6 +83,12 @@ Global
 		{037BCF37-FC59-4BBC-B64A-B557A6978416}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{037BCF37-FC59-4BBC-B64A-B557A6978416}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{037BCF37-FC59-4BBC-B64A-B557A6978416}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A3BF22E9-ADD2-4643-BD5B-E0DCF1EF7BEC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3BF22E9-ADD2-4643-BD5B-E0DCF1EF7BEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3BF22E9-ADD2-4643-BD5B-E0DCF1EF7BEC}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{A3BF22E9-ADD2-4643-BD5B-E0DCF1EF7BEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3BF22E9-ADD2-4643-BD5B-E0DCF1EF7BEC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A3BF22E9-ADD2-4643-BD5B-E0DCF1EF7BEC}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -103,6 +111,7 @@ Global
 		{1CFABD8D-449E-4172-B455-7574ECF09FDA} = {2C5A883F-7176-4481-A67B-F5E64761103F}
 		{C23C8C93-EA6F-45CF-B285-3E672EA39DA5} = {2C5A883F-7176-4481-A67B-F5E64761103F}
 		{037BCF37-FC59-4BBC-B64A-B557A6978416} = {C23C8C93-EA6F-45CF-B285-3E672EA39DA5}
+		{A3BF22E9-ADD2-4643-BD5B-E0DCF1EF7BEC} = {6722C609-7A6B-4D37-B491-E4A92003A7C7}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A2C2DF1E-3A88-4F88-939B-8E81D5E5752C}
