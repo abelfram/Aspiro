@@ -9,11 +9,10 @@
     <ProjectGuid>{a3bf22e9-add2-4643-bd5b-e0dcf1ef7bec}</ProjectGuid>
     <DSP>Microsoft.Data.Tools.Schema.Sql.Sql160DatabaseSchemaProvider</DSP>
     <OutputType>Database</OutputType>
-    <RootPath>
-    </RootPath>
+    <RootPath />
     <RootNamespace>AspiroDataBase</RootNamespace>
     <AssemblyName>AspiroDataBase</AssemblyName>
-    <ModelCollation>1033, CI</ModelCollation>
+    <ModelCollation>3082,CI</ModelCollation>
     <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
     <DeployToDatabase>True</DeployToDatabase>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
@@ -22,6 +21,8 @@
     <SqlServerVerification>False</SqlServerVerification>
     <IncludeCompositeObjects>True</IncludeCompositeObjects>
     <TargetDatabaseSet>True</TargetDatabaseSet>
+    <DefaultCollation>Modern_Spanish_CI_AS</DefaultCollation>
+    <DefaultFilegroup>PRIMARY</DefaultFilegroup>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <OutputPath>bin\Release\</OutputPath>
@@ -48,7 +49,6 @@
   </PropertyGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
-    <!-- Default to the v11.0 targets path if the targets file for the current VS version is not found -->
     <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
     <VisualStudioVersion Condition="'$(SSDTExists)' == ''">11.0</VisualStudioVersion>
   </PropertyGroup>
@@ -56,5 +56,10 @@
   <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
   <ItemGroup>
     <Folder Include="Properties" />
+    <Folder Include="dbo\" />
+    <Folder Include="dbo\Tables\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="dbo\Tables\Users.sql" />
   </ItemGroup>
 </Project>

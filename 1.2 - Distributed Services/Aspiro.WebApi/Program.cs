@@ -36,7 +36,7 @@ builder.Services.AddDbContext<AspiroDBContext>(options => options.UseSqlServer(
     builder.Configuration.GetConnectionString("DefaultConnection")
     ));
 
-builder.Services.AddScoped<IAspiroApplicationService, AspiroApplicationService>();
+builder.Services.AddScoped<IUsersApplicationService, UsersApplicationService>();
 builder.Services.AddScoped<IUsersRepository, UsersRepository>();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

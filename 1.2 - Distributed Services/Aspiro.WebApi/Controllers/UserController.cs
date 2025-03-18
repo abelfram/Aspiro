@@ -10,13 +10,13 @@ namespace Aspiro.WebApi.Controllers
     {
 
         #region .: Private Variables :.
-        private readonly IAspiroApplicationService _aspiroApplicationService;
+        private readonly IUsersApplicationService _applicationService;
         #endregion
 
         #region .: Constructor :.
-        public UserController(IAspiroApplicationService aspiroApplicationService)
+        public UserController(IUsersApplicationService applicationService)
         {
-            _aspiroApplicationService = aspiroApplicationService;
+            _applicationService = applicationService;
         }
 
         #endregion
@@ -27,7 +27,7 @@ namespace Aspiro.WebApi.Controllers
         [Route("Create")]
         public async Task<IActionResult> Create(Users users)
         {
-            var result = await _aspiroApplicationService.Create(users);
+            var result = await _applicationService.Create(users);
             return result;
         }
 
@@ -35,7 +35,7 @@ namespace Aspiro.WebApi.Controllers
         [Route("Read")]
         public async Task<IActionResult> Read()
         {
-            var result = await _aspiroApplicationService.Read();
+            var result = await _applicationService.Read();
             return result;
         }
 
@@ -43,7 +43,7 @@ namespace Aspiro.WebApi.Controllers
         [Route("Update/{id}")]
         public async Task<IActionResult> Update(Users users)
         {
-            var result = await _aspiroApplicationService.Update(users);
+            var result = await _applicationService.Update(users);
             return result;
         }
 
@@ -51,7 +51,7 @@ namespace Aspiro.WebApi.Controllers
         [Route("Delete/{id}")]
         public async Task<IActionResult> Delete(int id)
         {
-            var result = await _aspiroApplicationService.Delete(id);
+            var result = await _applicationService.Delete(id);
             return result;
         }
 
