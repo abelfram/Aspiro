@@ -1,19 +1,18 @@
 ﻿using Aspiro.Contracts.ServiceLibrary.ServiceContracts;
-using System.Web.Http;
 using Aspiro.Library.InfrastructureContracts;
 using Microsoft.AspNetCore.Mvc;
 using Aspiro.Contracts.ServiceLibrary.DTO;
 
 namespace Aspiro.Impl.ServiceLibrary.Implementations
 {
-    public class AspiroApplicationService : IAspiroApplicationService
+    public class UsersApplicationService : IUsersApplicationService
     {
         #region .: Private Methods :.
         private readonly IUsersRepository _userRepository;
         #endregion
 
         #region .: Constructor :.
-        public AspiroApplicationService(IUsersRepository usersRepository)
+        public UsersApplicationService(IUsersRepository usersRepository)
         {
             _userRepository = usersRepository;
         }

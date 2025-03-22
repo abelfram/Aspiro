@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Aspiro.Contracts.ServiceLibrary.ServiceContracts
 {
-    public interface IAspiroApplicationService
+    public interface IUsersApplicationService
     {
         Task<IActionResult> Create(Users users);
         Task<IActionResult> Read();

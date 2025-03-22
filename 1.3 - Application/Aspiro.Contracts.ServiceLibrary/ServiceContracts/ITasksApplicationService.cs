@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Microsoft.AspNetCore.Mvc;
 
 namespace Aspiro.Contracts.ServiceLibrary.ServiceContracts
 {
-    internal interface ITasksApplicationService
+    public interface ITasksApplicationService
     {
+        Task<IActionResult> Create();
+        Task<IActionResult> Read();
+        Task<IActionResult> Update();
+        Task<IActionResult> Delete();
     }
 }
