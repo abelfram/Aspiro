@@ -1,4 +1,5 @@
-﻿using Aspiro.Contracts.ServiceLibrary.ServiceContracts;
+﻿using Aspiro.Contracts.ServiceLibrary.DTO;
+using Aspiro.Contracts.ServiceLibrary.ServiceContracts;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -22,7 +23,7 @@ namespace Aspiro.WebApi.Controllers
         #region .: Public Methods :.
         [HttpPost]
         [Route("Create")]
-        public async Task<IActionResult> Create()
+        public async Task<IActionResult> Create(Tasks tasks)
         {
             var result = await _applicationService.Create();
             return result;

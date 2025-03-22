@@ -1,4 +1,5 @@
-﻿using Aspiro.Contracts.ServiceLibrary.ServiceContracts;
+﻿using DTO = Aspiro.Contracts.ServiceLibrary.DTO;
+using Aspiro.Contracts.ServiceLibrary.ServiceContracts;
 using Aspiro.Library.InfrastructureContracts;
 using Microsoft.AspNetCore.Mvc;
 
@@ -14,9 +15,10 @@ namespace Aspiro.Impl.ServiceLibrary.Implementations
             tasksRepository = _tasksRepository;
         }
 
-        public Task<IActionResult> Create()
+        public Task<IActionResult> Create(DTO.Tasks tasks)
         {
-            throw new NotImplementedException();
+            var result = _tasksRepository.Create(tasks);
+            return result;
         }
 
         public Task<IActionResult> Delete()
