@@ -25,7 +25,7 @@ namespace Aspiro.WebApi.Controllers
         [Route("Create")]
         public async Task<IActionResult> Create(Tasks tasks)
         {
-            var result = await _applicationService.Create();
+            var result = await _applicationService.Create(tasks);
             return result;
         }
         #endregion
