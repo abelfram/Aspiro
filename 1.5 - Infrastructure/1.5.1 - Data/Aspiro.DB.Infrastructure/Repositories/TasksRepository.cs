@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Aspiro.DB.Infrastructure.BoundedContexts;
 using AutoMapper;
 using Aspiro.Library.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace Aspiro.DB.Infrastructure.Repositories
 {
@@ -19,14 +20,14 @@ namespace Aspiro.DB.Infrastructure.Repositories
             _mapper = mapper;
         }
 
-        public async Task<IActionResult> Create(DTO.Tasks tasks)
+        public async Task<IActionResult> Create(DTO.TasksCreate tasks)
         {
             try
             {
                 var newTask = _mapper.Map<Tasks>(tasks);
                 _context.Tasks.Add(newTask);
                 await _context.SaveChangesAsync();
-                return new OkObjectResult(new { message = $"Task '{tasks.Name}' created succesfully with Id {tasks.Id}" });
+                return new OkObjectResult(new { message = $"Task '{tasks.Name}' created" });
             }
             catch (Exception ex)
             {
@@ -34,19 +35,66 @@ namespace Aspiro.DB.Infrastructure.Repositories
             }
         }
 
-        public Task<IActionResult> Delete()
+        public async Task<IActionResult> Read()
         {
-            throw new NotImplementedException();
+            try
+            {
+                var tasks = await _context.Tasks.ToListAsync();
+                return new OkObjectResult(tasks);
+            }
+            catch (Exception ex)
+            {
+                return new BadRequestObjectResult(new { message = $"An error has ocurred: {ex.Message}" });
+            }
         }
 
-        public Task<IActionResult> Read()
+        public async Task<IActionResult> Update(DTO.Tasks updatedTask)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var existingTask = _context.Tasks.FirstOrDefault(x => x.Id == updatedTask.Id);
+
+                if (existingTask == null)
+                {
+                    return new NotFoundObjectResult(new { message = $"Task with id '{updatedTask.Id}' not found" });
+                }
+
+                existingTask.Name = updatedTask.Name;
+                existingTask.Description = updatedTask.Description;
+
+                await _context.SaveChangesAsync();
+
+                return new OkObjectResult(new { message = $"Task with id: '{existingTask.Id}' updated correctly" });
+            }
+            catch (Exception ex)
+            {
+                return new BadRequestObjectResult(new { message = $"An error has ocurred: {ex.Message}" });
+            }
         }
 
-        public Task<IActionResult> Update()
+        public async Task<IActionResult> Delete(int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var taskToDelete = _context.Tasks.FirstOrDefault(x => x.Id == id);
+
+                if (taskToDelete == null)
+                {
+                    return new NotFoundObjectResult(new { message = $"Task with id '{taskToDelete.Id}' not found" });
+                }
+
+                _context.Tasks.Remove(taskToDelete);
+
+                await _context.SaveChangesAsync();
+
+                return new OkObjectResult(new { message = $"Task '{taskToDelete.Name}' deleted" });
+
+            }
+            catch (Exception ex)
+            {
+                return new BadRequestObjectResult(new { message = $"An error has ocurred: {ex.Message}" });
+            }
         }
+
     }
 }

@@ -9,6 +9,7 @@ namespace Aspiro.Extensions.Mappings
         public UsersProfile() 
         {
             CreateMap<Users,DTO.Users>().ReverseMap();
+            CreateMap<DTO.UsersCreate, Users>();
         }
     }
 }

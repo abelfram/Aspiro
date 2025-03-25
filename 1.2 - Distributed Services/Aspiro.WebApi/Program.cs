@@ -13,6 +13,7 @@ var builder = WebApplication.CreateBuilder(args);
 var mapperConfig = new MapperConfiguration(cfg =>
 {
     cfg.AddProfile(new UsersProfile());
+    cfg.AddProfile(new TasksProfile());
 });
 
 var mapper = mapperConfig.CreateMapper();
@@ -38,6 +39,9 @@ builder.Services.AddDbContext<AspiroDBContext>(options => options.UseSqlServer(
 
 builder.Services.AddScoped<IUsersApplicationService, UsersApplicationService>();
 builder.Services.AddScoped<IUsersRepository, UsersRepository>();
+
+builder.Services.AddScoped<ITasksApplicationService, TasksApplicationService>();
+builder.Services.AddScoped<ITasksRepository, TasksRepository>();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

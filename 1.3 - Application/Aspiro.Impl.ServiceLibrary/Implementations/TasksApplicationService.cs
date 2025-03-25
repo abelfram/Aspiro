@@ -2,6 +2,7 @@
 using Aspiro.Contracts.ServiceLibrary.ServiceContracts;
 using Aspiro.Library.InfrastructureContracts;
 using Microsoft.AspNetCore.Mvc;
+using Aspiro.Contracts.ServiceLibrary.DTO;
 
 namespace Aspiro.Impl.ServiceLibrary.Implementations
 {
@@ -12,28 +13,31 @@ namespace Aspiro.Impl.ServiceLibrary.Implementations
 
         public TasksApplicationService(ITasksRepository tasksRepository)
         {
-            tasksRepository = _tasksRepository;
+            _tasksRepository = tasksRepository;
         }
 
-        public Task<IActionResult> Create(DTO.Tasks tasks)
+        public Task<IActionResult> Create(DTO.TasksCreate tasks)
         {
             var result = _tasksRepository.Create(tasks);
             return result;
         }
 
-        public Task<IActionResult> Delete()
+        public Task<IActionResult> Delete(int id)
         {
-            throw new NotImplementedException();
+            var result = _tasksRepository.Delete(id);
+            return result;
         }
 
         public Task<IActionResult> Read()
         {
-            throw new NotImplementedException();
+            var result = _tasksRepository.Read();
+            return result;
         }
 
-        public Task<IActionResult> Update()
+        public Task<IActionResult> Update(DTO.Tasks tasks)
         {
-            throw new NotImplementedException();
+            var result = _tasksRepository.Update(tasks);
+            return result;
         }
     }
 }

@@ -20,7 +20,7 @@ namespace Aspiro.Impl.ServiceLibrary.Implementations
 
         #region .: Public Methods :.
 
-        public Task<IActionResult> Create(Users users)
+        public Task<IActionResult> Create(UsersCreate users)
         {
             var result = _userRepository.Create(users);
             return result;

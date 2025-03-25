@@ -5,9 +5,9 @@ namespace Aspiro.Contracts.ServiceLibrary.ServiceContracts
 {
     public interface ITasksApplicationService
     {
-        Task<IActionResult> Create(DTO.Tasks tasks);
+        Task<IActionResult> Create(DTO.TasksCreate tasks);
         Task<IActionResult> Read();
-        Task<IActionResult> Update();
-        Task<IActionResult> Delete();
+        Task<IActionResult> Update(DTO.Tasks taskToUpdate);
+        Task<IActionResult> Delete(int id);
     }
 }

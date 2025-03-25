@@ -5,9 +5,9 @@ namespace Aspiro.Library.InfrastructureContracts
 {
     public interface ITasksRepository
     {
-        Task<IActionResult> Create(DTO.Tasks tasks);
+        Task<IActionResult> Create(DTO.TasksCreate tasks);
         Task<IActionResult> Read();
-        Task<IActionResult> Update();
-        Task<IActionResult> Delete();
+        Task<IActionResult> Update(DTO.Tasks tasks);
+        Task<IActionResult> Delete(int id);
     }
 }

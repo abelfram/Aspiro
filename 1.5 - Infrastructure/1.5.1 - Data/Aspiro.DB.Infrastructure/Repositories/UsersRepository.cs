@@ -20,7 +20,7 @@ namespace Aspiro.DB.Infrastructure.Repositories
         }
 
         #region .: Public Methods :.
-        public async Task<IActionResult> Create(DTO.Users users)
+        public async Task<IActionResult> Create(DTO.UsersCreate users)
         {
             try
             {

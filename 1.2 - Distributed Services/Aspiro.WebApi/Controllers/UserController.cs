@@ -25,7 +25,7 @@ namespace Aspiro.WebApi.Controllers
 
         [HttpPost]
         [Route("Create")]
-        public async Task<IActionResult> Create(Users users)
+        public async Task<IActionResult> Create(UsersCreate users)
         {
             var result = await _applicationService.Create(users);
             return result;
