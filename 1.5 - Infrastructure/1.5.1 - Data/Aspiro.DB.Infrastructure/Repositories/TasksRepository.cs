@@ -56,7 +56,7 @@ namespace Aspiro.DB.Infrastructure.Repositories
 
                 if (existingTask == null)
                 {
-                    return new NotFoundObjectResult(new { message = $"Task with id '{updatedTask.Id}' not found" });
+                    return new NotFoundObjectResult(new { message = $"Task not found" });
                 }
 
                 existingTask.Name = updatedTask.Name;
@@ -80,7 +80,7 @@ namespace Aspiro.DB.Infrastructure.Repositories
 
                 if (taskToDelete == null)
                 {
-                    return new NotFoundObjectResult(new { message = $"Task with id '{taskToDelete.Id}' not found" });
+                    return new NotFoundObjectResult(new { message = $"Task not found" });
                 }
 
                 _context.Tasks.Remove(taskToDelete);
