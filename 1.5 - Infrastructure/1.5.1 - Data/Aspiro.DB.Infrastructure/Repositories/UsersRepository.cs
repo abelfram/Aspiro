@@ -67,6 +67,9 @@ namespace Aspiro.DB.Infrastructure.Repositories
                 }
 
                 existingUser.Name = users.Name;
+                existingUser.Surname = users.Surname;
+                existingUser.Email = users.Email;
+                existingUser.BirthDate = users.BirthDate;
                 existingUser.Dni = users.Dni;
 
                 await _context.SaveChangesAsync();
