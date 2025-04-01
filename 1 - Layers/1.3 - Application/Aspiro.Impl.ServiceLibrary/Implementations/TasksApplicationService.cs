@@ -2,7 +2,6 @@
 using Aspiro.Contracts.ServiceLibrary.ServiceContracts;
 using Aspiro.Library.InfrastructureContracts;
 using Microsoft.AspNetCore.Mvc;
-using Aspiro.Contracts.ServiceLibrary.DTO;
 
 namespace Aspiro.Impl.ServiceLibrary.Implementations
 {
