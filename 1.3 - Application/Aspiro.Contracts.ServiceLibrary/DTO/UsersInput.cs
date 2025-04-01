@@ -1,6 +1,6 @@
 ﻿namespace Aspiro.Contracts.ServiceLibrary.DTO
 {
-    public class UsersCreate
+    public class UsersInput
     {
         public string Name { get; set; }
         public string Surname { get; set; }

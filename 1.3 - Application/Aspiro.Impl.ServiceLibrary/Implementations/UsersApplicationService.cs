@@ -20,7 +20,7 @@ namespace Aspiro.Impl.ServiceLibrary.Implementations
 
         #region .: Public Methods :.
 
-        public Task<IActionResult> Create(UsersCreate users)
+        public Task<IActionResult> Create(UsersInput users)
         {
             var result = _userRepository.Create(users);
             return result;
@@ -32,9 +32,9 @@ namespace Aspiro.Impl.ServiceLibrary.Implementations
             return result;
         }
 
-        public Task<IActionResult> Update(Users users)
+        public Task<IActionResult> Update(UsersInput users, int id)
         {
-            var result = _userRepository.Update(users);
+            var result = _userRepository.Update(users, id);
             return result;
         }
 

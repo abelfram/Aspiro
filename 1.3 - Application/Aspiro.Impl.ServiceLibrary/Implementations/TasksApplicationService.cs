@@ -16,7 +16,7 @@ namespace Aspiro.Impl.ServiceLibrary.Implementations
             _tasksRepository = tasksRepository;
         }
 
-        public Task<IActionResult> Create(DTO.TasksCreate tasks)
+        public Task<IActionResult> Create(DTO.TasksInput tasks)
         {
             var result = _tasksRepository.Create(tasks);
             return result;
@@ -34,9 +34,9 @@ namespace Aspiro.Impl.ServiceLibrary.Implementations
             return result;
         }
 
-        public Task<IActionResult> Update(DTO.Tasks tasks)
+        public Task<IActionResult> Update(DTO.TasksInput tasks, int id)
         {
-            var result = _tasksRepository.Update(tasks);
+            var result = _tasksRepository.Update(tasks, id);
             return result;
         }
     }

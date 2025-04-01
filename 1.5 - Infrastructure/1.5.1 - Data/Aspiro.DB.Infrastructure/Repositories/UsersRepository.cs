@@ -20,7 +20,7 @@ namespace Aspiro.DB.Infrastructure.Repositories
         }
 
         #region .: Public Methods :.
-        public async Task<IActionResult> Create(DTO.UsersCreate users)
+        public async Task<IActionResult> Create(DTO.UsersInput users)
         {
             try
             {
@@ -55,15 +55,15 @@ namespace Aspiro.DB.Infrastructure.Repositories
             }
         }
 
-        public async Task<IActionResult> Update(DTO.Users users)
+        public async Task<IActionResult> Update(DTO.UsersInput users, int id)
         {
             try
             {
-                var existingUser = await _context.Users.FirstOrDefaultAsync(x => x.Id == users.Id);
+                var existingUser = await _context.Users.FirstOrDefaultAsync(x => x.Id == id);
 
                 if (existingUser == null)
                 {
-                    return new NotFoundObjectResult(new { message = $"User with Id '{users.Id}' not found" });
+                    return new NotFoundObjectResult(new { message = $"User with Id '{id}' not found" });
                 }
 
                 existingUser.Name = users.Name;

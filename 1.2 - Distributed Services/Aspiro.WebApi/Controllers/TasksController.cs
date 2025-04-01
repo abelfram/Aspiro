@@ -22,7 +22,7 @@ namespace Aspiro.WebApi.Controllers
         #region .: Public Methods :.
         [HttpPost]
         [Route("Create")]
-        public async Task<IActionResult> Create(TasksCreate tasks)
+        public async Task<IActionResult> Create(TasksInput tasks)
         {
             var result = await _applicationService.Create(tasks);
             return result;
@@ -38,9 +38,9 @@ namespace Aspiro.WebApi.Controllers
 
         [HttpPost]
         [Route("Update/{id}")]
-        public async Task<IActionResult> Update(Tasks tasks)
+        public async Task<IActionResult> Update(TasksInput tasks, int id)
         {
-            var result = await _applicationService.Update(tasks);
+            var result = await _applicationService.Update(tasks, id);
             return result;
         }
 

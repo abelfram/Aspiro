@@ -25,7 +25,7 @@ namespace Aspiro.WebApi.Controllers
 
         [HttpPost]
         [Route("Create")]
-        public async Task<IActionResult> Create(UsersCreate users)
+        public async Task<IActionResult> Create(UsersInput users)
         {
             var result = await _applicationService.Create(users);
             return result;
@@ -41,9 +41,9 @@ namespace Aspiro.WebApi.Controllers
 
         [HttpPost]
         [Route("Update/{id}")]
-        public async Task<IActionResult> Update(Users users)
+        public async Task<IActionResult> Update(UsersInput users, int id)
         {
-            var result = await _applicationService.Update(users);
+            var result = await _applicationService.Update(users, id);
             return result;
         }
 

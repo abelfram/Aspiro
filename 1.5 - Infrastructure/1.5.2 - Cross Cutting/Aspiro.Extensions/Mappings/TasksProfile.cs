@@ -9,7 +9,7 @@ namespace Aspiro.Extensions.Mappings
         public TasksProfile()
         {
             CreateMap<Tasks, DTO.Tasks>().ReverseMap();
-            CreateMap<DTO.TasksCreate, Tasks>();
+            CreateMap<DTO.TasksInput, Tasks>();
         }
     }
 }

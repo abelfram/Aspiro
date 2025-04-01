@@ -20,7 +20,7 @@ namespace Aspiro.DB.Infrastructure.Repositories
             _mapper = mapper;
         }
 
-        public async Task<IActionResult> Create(DTO.TasksCreate tasks)
+        public async Task<IActionResult> Create(DTO.TasksInput tasks)
         {
             try
             {
@@ -48,11 +48,11 @@ namespace Aspiro.DB.Infrastructure.Repositories
             }
         }
 
-        public async Task<IActionResult> Update(DTO.Tasks updatedTask)
+        public async Task<IActionResult> Update(DTO.TasksInput updatedTask, int id)
         {
             try
             {
-                var existingTask = _context.Tasks.FirstOrDefault(x => x.Id == updatedTask.Id);
+                var existingTask = _context.Tasks.FirstOrDefault(x => x.Id == id);
 
                 if (existingTask == null)
                 {
